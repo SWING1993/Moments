@@ -56,9 +56,10 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-    self.bannerView = [[GADBannerView alloc] initWithFrame:CGRectMake(0, self.view.qmui_height - 50 - self.qmui_navigationBarMaxYInViewCoordinator, self.view.qmui_width, 50)];
+    self.bannerView = [[GADBannerView alloc] init];
     self.bannerView.adUnitID = @"ca-app-pub-6037095993957840/9771733149";
     self.bannerView.rootViewController = self;
+//    self.bannerView.backgroundColor = UIColorRandom;
     [self.view addSubview:self.bannerView];
 
     @weakify(self)
@@ -111,6 +112,8 @@
     [super viewDidLayoutSubviews];
 
     self.gridView.frame = CGRectMake(0, self.qmui_navigationBarMaxYInViewCoordinator, CGRectGetWidth(self.view.bounds), QMUIViewSelfSizingHeight);
+    
+    self.bannerView.frame = CGRectMake(0, self.view.qmui_height - 50, self.view.qmui_width, 50);
 }
 
 
